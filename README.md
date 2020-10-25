@@ -2,7 +2,7 @@
 
 ## Usage
 
-### Color asn Style
+### Color and Style
 
 #### Like Object Oriented Programming
 
@@ -10,8 +10,13 @@
 import AnsiTerm
 
 let style = Style(foreground: .red, bold: true, blink: true)
-let hello = "Hello, AnsiTerm!"
-print(hello)
+let name = ANSIString("AnsiTerm!", style: style)
+var style2 = style
+style2.isBlinked = false
+style2.foregroundColor = .blue
+let hello = ANSIString("Hello, ", style: style2)
+let strings: ANSIStrings = [hello, name]
+print(strings)
 ```
 
 #### Like Functional Programming
@@ -31,11 +36,13 @@ print(yellowBoldText)
 import AnsiTerm
 import Foundation
 
-print("Hello", terminator: "")
+print("Hello")
 sleep(2)
+Cursor.move(up: 1)
 Cursor.move(backward: 5)
-prnit("World")
+print("World")
 sleep(2)
+Cursor.move(up: 1)
 Console.clearLine()
 ```
 
