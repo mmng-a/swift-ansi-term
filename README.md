@@ -29,10 +29,13 @@ print(yellowBoldText)
 
 ```swift
 import AnsiTerm
+import Foundation
 
 print("Hello", terminator: "")
+sleep(2)
 Cursor.move(backward: 5)
 prnit("World")
+sleep(2)
 Console.clearLine()
 ```
 
